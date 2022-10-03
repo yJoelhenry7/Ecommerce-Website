@@ -10,11 +10,7 @@ function checkPassword(){
     let messages = document.getElementById("message");
     messages.style.display= "inline-block";
     if(password.length != 0){
-        if(password == cnfrmPassword ){
-            messages.textContent = "Password Match";
-            messages.style.backgroundColor = "#3ae374";  
-        }
-        else{
+        if(password !== cnfrmPassword ){
             messages.textContent = "Password don't match";
             messages.style.backgroundColor = "#ff4d4d";
         }

@@ -15,24 +15,25 @@
      <div class="forms">
         <div class="form login">
           <span class="title">Registration</span>
-         <form action="" method="get">
+         <form action="/signUpSubmit" method="GET">
             <div class="input-field">
-                <input type="text" placeholder="Full Name" required>
+                <input type="text" placeholder="User Name" name="user_name" required>
                 <i class="uil uil-user"></i>
              </div> 
             <div class="input-field">
-               <input type="text"  placeholder="Email Address" required>
+               <input type="text"  placeholder="Email Address" name="Email" required>
                <i class="uil uil-envelope"></i>
             </div> 
             <div class="input-field">
-               <input type="password" class="password" placeholder="Password" required>
+               <input type="password" class="password" placeholder="Password" id="password"  name="password" required>
                <i class="uil uil-lock icon"></i>
             </div> 
             <div class="input-field">
-                <input type="password" class="password"  placeholder="Confirm Password" required>
+                <input type="password" class="password"  placeholder="Confirm Password" name="cnfrmpassword" id="cnfrmpassword" required>
                 <i class="uil uil-lock icon"></i>
                 <i class="uil uil-eye-slash showHidePw"></i>
              </div> 
+             <p id="message"></p>
             <div class="checkbox-text">
                <div class="checkbox-content">
                   <input type="checkbox"  id="logCheck">
@@ -40,7 +41,7 @@
                </div>
             </div>
                <div class="input-field button">
-                  <input type="button" value="Sign Up">
+                  <input type="submit" value="Sign Up" onclick="checkPassword()">
                </div> 
          </form>
          <div class="login-signup">

@@ -15,14 +15,14 @@
      <div class="forms">
         <div class="form login">
           <span class="title">Login</span>
-         <form action="" method="get">
-
+          
+         <form action="/signinSubmit" method="GET">
             <div class="input-field">
-               <input type="text"  placeholder="Email Address" required>
+               <input type="text"  placeholder="Email Address" name="Email" required>
                <i class="uil uil-envelope"></i>
             </div> 
             <div class="input-field">
-               <input type="password" class="password"  placeholder="Password" required>
+               <input type="password" class="password"  placeholder="Password" name="password" required>
                <i class="uil uil-lock icon"></i>
                <i class="uil uil-eye-slash showHidePw"></i>
             </div> 
@@ -35,7 +35,7 @@
                <a href="http://localhost:3000/forgot" class="text">Forgot password?</a>
             </div>
                <div class="input-field button">
-                  <input type="button" value="Log In">
+                  <input type="submit" value="Log In">
                </div> 
          </form>
          <div class="login-signup">
