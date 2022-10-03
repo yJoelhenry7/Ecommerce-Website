@@ -1,0 +1,25 @@
+{
+  "name": "capstone-project",
+  "version": "1.0.0",
+  "description": "This is an E commerce website ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yJoelhenry7/Capstone-Project.git"
+  },
+  "keywords": [
+    "Ecommerce",
+    "Website",
+    "responsive",
+    "Design"
+  ],
+  "author": "Joel Henry Yellamelli",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yJoelhenry7/Capstone-Project/issues"
+  },
+  "homepage": "https://github.com/yJoelhenry7/Capstone-Project#readme"
+}
