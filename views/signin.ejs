@@ -5,8 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- iconscout css link -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <!-- css link -->
+    <link rel="stylesheet" href="/css/signInUp.css">
 </head>
 <body>
-    
+   <div class="container">
+     <div class="forms">
+        <div class="form login">
+          <span class="title">Login</span>
+         <form action="" method="get">
+
+            <div class="input-field">
+               <input type="text"  placeholder="Email Address" required>
+               <i class="uil uil-envelope"></i>
+            </div> 
+            <div class="input-field">
+               <input type="password" class="password"  placeholder="Password" required>
+               <i class="uil uil-lock icon"></i>
+               <i class="uil uil-eye-slash showHidePw"></i>
+            </div> 
+            <div class="checkbox-text">
+               <div class="checkbox-content">
+                  <input type="checkbox" class="check-button" id="logCheck">
+                  <label for="logCheck" class="check">Remember me</label>
+               </div>
+
+               <a href="http://localhost:3000/forgot" class="text">Forgot password?</a>
+            </div>
+               <div class="input-field button">
+                  <input type="button" value="Log In">
+               </div> 
+         </form>
+         <div class="login-signup">
+            <span class="text">Not a Member?
+              <a href="http://localhost:3000/signup" target="_self" class="text_signup-text">Signup now</a>
+            </span>
+         </div>
+        </div>
+     </div>
+   </div> 
+   <script src="/js/signInUp.js"></script>
 </body>
 </html>
