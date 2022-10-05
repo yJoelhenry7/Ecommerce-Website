@@ -16,9 +16,6 @@ function checkPassword(){
         }
     }
 }
-
-
-
 // js code to show/hide password and change icon
 pwShowHide.forEach(eyeIcon =>{
     eyeIcon.addEventListener("click", ()=>{

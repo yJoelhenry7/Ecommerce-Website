@@ -1,0 +1,199 @@
+* {
+    box-sizing: border-box;
+}
+.mySlides {
+    display: block
+}
+img {
+    vertical-align: middle;
+    width: 100%;
+}
+
+/* Slideshow css start */
+.slideshow-container {
+  max-width: 70%;
+  position: relative;
+  margin: auto;
+}
+.text {
+  color: black;
+  font-size: 30px;
+  padding: 8px 12px;
+  position: absolute;
+  left: 10rem;
+  bottom: 30rem;
+  width: 100%;
+  text-align: left;
+}
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 2.0s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+.dot{
+ height: 10px;
+  width: 10px;
+}
+}
+@media only screen and (max-width: 500px) {
+  .prev, .next,.text {font-size: 14px}
+}
+/* slideshow css end */
+
+/* -------------------------------------------------------------------------------------------- */
+
+
+/* banner css start*/
+.banner-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(32rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(32rem, 1fr));
+  gap: 1.5rem;
+}
+
+.banner-container .banner {
+  position: relative;
+  height: 25rem;
+  overflow: hidden;
+}
+
+.banner-container .banner:hover img {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+.banner-container .banner img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.banner-container .banner .content {
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.banner-container .banner .content span {
+  color: #666;
+  font-size: 1.5rem;
+}
+
+.banner-container .banner .content h3 {
+  font-size: 2rem;
+  padding-top: .5rem;
+  color: #222;
+}
+
+.banner-container .banner .content .btn {
+  padding: .8rem 2.5rem;
+}
+
+/* banner css end */
+
+/* ------------------------------------------------------------------------------------------------------ */
+
+/* new season banner start */
+.newSeason {
+  display: flex;
+}
+
+.nsItem {
+  flex: 1;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.nsImg {
+  width: 100%;
+  height: 500px;
+}
+
+.nsTitle {
+  font-size: 40px;
+}
+
+.nsButton {
+  margin-top: 2rem;
+  padding: 15px;
+  font-weight: 600;
+  font-size: 1.5rem;
+  border-radius: .5rem;
+  border: .2rem solid #fff;
+  color: #fff;
+  cursor: pointer;
+  background: none;
+}
+.nsButton:hover{
+  background: #ff7800;
+  color:black;
+}
+@media screen and (max-width:480px) {
+  .newSeason{
+    flex-direction: column;
+  }
+
+  .nsItem:nth-child(2){
+    padding: 50px;
+  }
+}
+/* new season css end */
+
+/* ------------------------------------------------------------------------------------------- */
+ 
+/* image gallery css */
+.gallery {
+  padding: 50px;
+  display: flex;
+}
+
+.galleryItem {
+  flex: 1;
+  padding: 50px;
+}
+
+.galleryImg {
+  width: 100%;
+}
+
+@media (max-width:768px){
+  .gallery{
+    display: none;
+  }
+
+}
+
+@media (max-width:400px){
+  .gallery{
+    display: none;
+  }
+}
+/* image gallery css ends */

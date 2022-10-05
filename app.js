@@ -1,4 +1,5 @@
 // importing express using require package
+const { response } = require("express");
 const express = require("express");
 const app = express();
 const port = 3000;
@@ -29,7 +30,7 @@ app.get("/signinSubmit",(req,res)=>{
     const password = req.query.password;  
     db.collection("users").where("email","==",email).where("password","==",password).get().then((docs)=>{
         if(docs.size >0){
-            res.send("Login Succesfully");
+            res.render("home")
         }
         else{
             res.send("Login Failed");
@@ -82,6 +83,31 @@ app.get("/forgot/verify", (req, res) => {
   res.render("verify");
 });
 
+app.get("/home", (req, res) => {
+  res.render("home");
+});
+app.get("/shop", async(req, res) => {
+  try{
+   const userRef = db.collection('Products')
+   const response = await userRef.get();
+   let responseArr = [];
+   response.forEach(doc =>{
+    responseArr.push(doc.data());
+   });
+  res.render("shop",{
+   prod1:responseArr[0], prod2:responseArr[1], prod3:responseArr[2],  prod4:responseArr[3], prod5:responseArr[4], prod6:responseArr[5]
+   ,prod7:responseArr[6],prod8:responseArr[7]
+  })
+
+  }catch(error){
+    res.send(error);
+  }
+
+});
+app.post("/shop/product", (req, res) => {
+  console.log(req.query);
+  res.render("product");
+});
 // Listen on Port 3000
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
