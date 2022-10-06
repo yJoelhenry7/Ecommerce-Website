@@ -17,6 +17,9 @@ app.use('/js',express.static(__dirname+'public/js'))
 // Templating Engine
 app.set("view engine", "ejs");
 
+// controllers
+const {homeController} =require('./controllers/homeController')
+
 // routes for project
 app.get("/", (req, res) => {
   res.send("Hello World!");
@@ -26,10 +29,10 @@ app.get("/signin", (req, res) => {
   res.render("auth/signin");
 });
 
-app.get("/signinSubmit",(req,res)=>{
+app.post("/signinSubmit",(req,res)=>{
     const email = req.query.Email;
     const password = req.query.password;  
-    db.collection("users").where("email","==",email).where("password","==",password).get().then((docs)=>{
+    db.collection("users").get().then((docs)=>{
         if(docs.size >0){
             res.render("home")
         }
@@ -55,7 +58,7 @@ app.get("/signUpSubmit",(req,res)=>{
             email:email,
             password:password
         }).then(()=>{
-            res.render("signupsuccess",{name:name})
+            res.render("auth/signupsuccess",{name:name})
         })
     }
 })
@@ -85,52 +88,74 @@ app.get("/forgot/verify", (req, res) => {
   res.render("auth/verify");
 });
 
-app.get("/home", async(req,res)=>{
+app.get("/home",homeController);
 
-    res.render('home')
-});
 app.get("/shop", async(req, res) => {
   try{
-   const userRef = db.collection('Products')
-   const response = await userRef.get();
+   const prodRef = db.collection('Products')
+   const response = await prodRef.get();
    let responseArr = [];
    response.forEach(doc =>{
     responseArr.push(doc.data());
    });
   res.render("shop",{
    prod : responseArr
-  })
-
+  });
   }catch(error){
     res.send(error);
   }
+});
 
+app.get("/addcart",(req,res)=>{
+    const id = req.query.product;
+    const name = req.query.name;
+    const cost = req.query.cost;
+    const img = req.query.img;
+    try{
+        const addCartRef = db.collection('cart').doc( )   
+    const responser = addCartRef.set({
+         name:name,cost:cost,img:img
+      },{merge:true});
+     res.render("home");
+     }catch(error){
+         res.send(error);
+   }
 });
-app.post("/shop/product", (req, res) => {
-  console.log(req.query);
-  res.render("product");
-});
+
 
 app.get("/cart",async(req,res)=>{
-  const id = req.query.product;
-  const val = parseInt(id)
   try{
-    const userRef = db.collection('Products')
-    const response = await userRef.get();
+    const cartRef = db.collection('cart')
+    const response = await cartRef.get();
     let responseArr = [];
+    let cost = 0;
     response.forEach(doc =>{
      responseArr.push(doc.data());
     });
-   res.render('cart',{
-    prod:responseArr[val]
-   })
- 
+    responseArr.forEach(val=>{
+      cost+=parseInt(val.cost)
+    })
+    if(responseArr.length === 0){
+      res.render("emptyCart")
+    }
+    else {
+      res.render("cart",{
+       prod : responseArr,
+       cost: cost
+      });
+    }
    }catch(error){
      res.send(error);
    }
 })
 
+app.get('/contact',(req,res)=>{
+  res.render('contact')
+})
 // Listen on Port 3000
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+
+

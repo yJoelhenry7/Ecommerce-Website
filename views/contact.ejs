@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+            <!-- Adding tab icon -->
+            <link rel="shortcut icon" href="/img/" type="image/x-icon">
+            <!-- Font awesome cdn link -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+             <!-- css link -->
+           <link rel="stylesheet" href="/css/headfoot.css">
+           <link rel="stylesheet" href="/css/contact.css">
+</head>
+<body>
+ <!-- header starts here -->
+  <%- include('includes/header.ejs')%>
+  <!-- header ends here -->
+  <div class="spacex"></div>
+  
+<!-- service section starts  -->
+
+<section class="service">
+
+  <div class="box-container">
+
+      <div class="box">
+          <i class="fas fa-shipping-fast"></i>
+          <h3>fast delivery</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, fugit.</p>
+      </div>
+
+      <div class="box">
+          <i class="fas fa-undo"></i>
+          <h3>10 days replacements</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, fugit.</p>
+      </div>
+
+      <div class="box">
+          <i class="fas fa-headset"></i>
+          <h3>24 x 7 support</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum, fugit.</p>
+      </div>
+
+  </div>
+
+</section>
+
+<!-- service section ends -->
+
+  <!-- contact  form -->
+  <div class="row">
+
+    <form action="">
+        <h3>get in touch</h3>
+        <div class="inputBox">
+            <input type="text" placeholder="enter your name" class="box">
+            <input type="email" placeholder="enter your email" class="box">
+        </div>
+        <div class="inputBox">
+            <input type="number" placeholder="enter your number" class="box">
+            <input type="text" placeholder="enter your subject" class="box">
+        </div>
+        <textarea placeholder="your message" cols="30" rows="10"></textarea>
+        <input type="submit" value="send message" class="btn">
+    </form>
+
+    <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30597.277143820975!2d81.4986314110828!3d16.54327181972068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a37d2a6a86d3e4b%3A0x4eed21243d2dcfed!2sBhimavaram%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1665068101237!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+
+</div>
+
+<!-- contact form ends -->
+<div class="spacex"></div>
+
+
+  <!-- Footer -->
+  <%-include('includes/footer.ejs')%>
+  <!-- Footer  -->
+  <script src="/js/headfoot.js"></script>
+  <script src="/js/contact.js"></script>
+
+</body>
+</html>
