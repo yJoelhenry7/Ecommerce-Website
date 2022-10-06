@@ -23,38 +23,21 @@
   <!-- Empty cart section start -->
         <section class="cart">
     
-   <div class="order-cart">
+   <!-- <div class="order-cart">
    <div class="order-icon">
         <img src="/img/cart-black.png" alt="">
         <h1 class="orderhead">Order summary</h1>
    </div>
-   <div class="order-list">
+   <div class="order-list ">
         <div class="order-item flex">
-                <img src="/img/adidas.jpg" class="item-img" >
+                <img src="<%=prod.product%>" class="item-img" >
                 <div class="item-text">
-                       <h1>Nike-1</h1> 
+                       <h1><%=prod.name%></h1> 
                 </div>
                 <span class="flex">1Q</span>
-                <span style="font-size: 1.5rem; font-weight:700">₹2000</span>
+                <span style="font-size: 1.5rem; font-weight:700"><%=prod.cost%></span>
         </div>
-        <div class="order-list">
-                <div class="order-item flex">
-                        <img src="/img/adidas.jpg" class="item-img" >
-                        <div class="item-text">
-                               <h1>Nike-1</h1> 
-                        </div>
-                        <span class="flex">1Q</span>
-                        <span style="font-size: 1.5rem; font-weight:700">₹2000</span>
-                </div>
-                <div class="order-list">
-                        <div class="order-item flex">
-                                <img src="/img/adidas.jpg" class="item-img" >
-                                <div class="item-text">
-                                       <h1>Nike-1</h1> 
-                                </div>
-                                <span class="flex">1Q</span>
-                                <span style="font-size: 1.5rem; font-weight:700">₹2000</span>
-                        </div>             
+           
    </div>
 <div class="item-billing">
       <div class="total-cost">
@@ -63,11 +46,11 @@
 </div>  
 <a href="http://" class="btn buy">buy all</a>
 </div>
-   </div>
+   </div> -->
 
 
 
-      <!-- <div class="empty-cart">
+      <div class="empty-cart">
         <h1 class="titlec">cart Empty 😕</h1>
         <div class="cartemp">
                 <p>you probably haven't added any item to cart</p>
@@ -75,10 +58,10 @@
         </div>
         <img src="/img/empty-cart.png" class="empimg" alt="" >
         <div class="btn-center">
-         <a href="http://" class="btn ">go back</a>
+         <a href="/shop" class="btn ">go back</a>
         </div>
-      </div> -->
-        </section>
+      </div>
+        </section> 
          <!-- cart section end -->
 
 
@@ -87,6 +70,7 @@
   <!-- <%-include('includes/footer.ejs')%> -->
   <!-- Footer  -->
   <script src="/js/headfoot.js"></script>
+  <script src="/js/cart.js"></script>
 
 </body>
 </html>

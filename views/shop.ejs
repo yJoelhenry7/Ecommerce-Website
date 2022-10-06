@@ -77,99 +77,23 @@
 
     <h1 class="heading"> latest <span>products</span> </h1>
     <div class="box-container">
-
+      <% prod.forEach(function(prod){%>
         <div class="box">
             <div class="icons">
                 <a href="#" class="fas fa-heart"></a>
             </div>
-            <img src=" <%= prod1.product1%> "alt="">
+            <img src="<%=prod.product%>"alt="">
             <div class="content">
-                <h3><%=prod1.name%></h3>
-                <div class="price">&#8377;<%=prod1.cost%><span>&#8377;<%=prod1.realcost%></span></div>
-                <a href="#" class="btn">buy now</a>
+                <h3><%=prod.name%></h3>
+                <div class="price">&#8377;<%=prod.cost%> <span>&#8377;<%=prod.realcost%></span></div>
+                <form  action="/cart" method="get">
+                    <input type="text" class="id-num" name="product" value=" <%= prod.id%> " readonly>
+                    <input type="submit" class="btn" onclick="buttonclick" value="buy now">
+                </form>
             </div>
         </div>
-        <div class="box">
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <img src="<%= prod2.product2%>" alt="">
-            <div class="content">
-                <h3><%=prod2.name%></h3>
-                <div class="price">&#8377;<%=prod2.cost%><span>&#8377;<%=prod2.realcost%></span></div>
-                <a href="#" class="btn">buy now</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <img src="<%= prod3.product3%>" alt="">
-            <div class="content">
-                <h3><%=prod3.name%></h3>
-                <div class="price">&#8377;<%=prod3.cost%><span>&#8377;<%=prod3.realcost%></span></div>
-                <a href="#" class="btn">buy now</a>
-            </div>
-        </div>
-
-
-        <div class="box">
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <img src="<%= prod4.product4%>" alt="">
-            <div class="content">
-                <h3><%=prod4.name%></h3>
-                <div class="price">&#8377;<%=prod4.cost%><span>&#8377;<%=prod4.realcost%></span></div>
-                <a href="#" class="btn">buy now</a>
-            </div>
-        </div>
-        <div class="box">
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <img src="<%= prod5.product5%>" alt="">
-            <div class="content">
-                <h3><%=prod5.name%></h3>
-                <div class="price">&#8377;<%=prod5.cost%><span>&#8377;<%=prod5.realcost%></span></div>
-                <a href="#" class="btn">buy now</a>
-            </div>
-        </div>
-        <div class="box">
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <img src="<%= prod6.product6%>" alt="">
-            <div class="content">
-                <h3><%=prod6.name%></h3>
-                <div class="price">&#8377;<%=prod6.cost%><span>&#8377;<%=prod6.realcost%></span></div>
-                <a href="#" class="btn">buy now</a>
-            </div>
-        </div>
-        <div class="box">
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <img src="<%= prod7.product7%>" alt="">
-            <div class="content">
-                <h3><%=prod7.name%></h3>
-                <div class="price">&#8377;<%=prod7.cost%><span>&#8377;<%=prod7.realcost%></span></div>
-                <a href="#" class="btn">buy now</a>
-            </div>
-        </div>
-        <div class="box">
-            <div class="icons">
-                <a href="#" class="fas fa-heart"></a>
-            </div>
-            <img src="<%= prod8.product8%>" alt="">
-            <div class="content">
-                <h3><%=prod8.name%></h3>
-                <div class="price">&#8377;<%=prod8.cost%><span>&#8377;<%=prod8.realcost%></span></div>
-                <a href="#" class="btn">buy now</a>
-            </div>
-        </div>
-    </div>
+        <%})%>
+    </div> 
 </section>
 
 <!-- products section ends -->

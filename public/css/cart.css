@@ -72,3 +72,9 @@
     display: block;
   float: right;
 }
+.not-active{
+    display: none;
+}
+.activated{
+    display: block;
+}

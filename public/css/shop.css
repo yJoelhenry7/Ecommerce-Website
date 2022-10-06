@@ -235,6 +235,9 @@
   font-size: 1.7rem;
   color:var(--orange);
 }
+.id-num{
+  visibility: hidden;
+}
 
 /* product section css ends */
 

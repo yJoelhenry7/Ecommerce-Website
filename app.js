@@ -6,7 +6,6 @@ const port = 3000;
 
 // importing firebase database 
 const { FieldValue } = require('firebase-admin/firestore');
-const homeController = require("./contollers/homeController.js");
 const { db } = require('./models/firebase.js');
 
 // Static Files
@@ -14,6 +13,7 @@ app.use(express.static('public'));
 app.use('/css',express.static(__dirname+'public/css'))
 app.use('/img',express.static(__dirname+'public/img'))
 app.use('/js',express.static(__dirname+'public/js'))
+
 // Templating Engine
 app.set("view engine", "ejs");
 
@@ -37,6 +37,7 @@ app.get("/signinSubmit",(req,res)=>{
             res.send("Login Failed");
         }
     }) 
+  
 })
 
 app.get("/signup", (req, res) => {
@@ -86,7 +87,7 @@ app.get("/forgot/verify", (req, res) => {
 
 app.get("/home", async(req,res)=>{
 
-    res.render('/home')
+    res.render('home')
 });
 app.get("/shop", async(req, res) => {
   try{
@@ -97,8 +98,7 @@ app.get("/shop", async(req, res) => {
     responseArr.push(doc.data());
    });
   res.render("shop",{
-   prod1:responseArr[0], prod2:responseArr[1], prod3:responseArr[2],  prod4:responseArr[3], prod5:responseArr[4], prod6:responseArr[5]
-   ,prod7:responseArr[6],prod8:responseArr[7]
+   prod : responseArr
   })
 
   }catch(error){
@@ -111,9 +111,25 @@ app.post("/shop/product", (req, res) => {
   res.render("product");
 });
 
-app.get("/cart",(req,res)=>{
-   res.render("cart");
+app.get("/cart",async(req,res)=>{
+  const id = req.query.product;
+  const val = parseInt(id)
+  try{
+    const userRef = db.collection('Products')
+    const response = await userRef.get();
+    let responseArr = [];
+    response.forEach(doc =>{
+     responseArr.push(doc.data());
+    });
+   res.render('cart',{
+    prod:responseArr[val]
+   })
+ 
+   }catch(error){
+     res.send(error);
+   }
 })
+
 // Listen on Port 3000
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
