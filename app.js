@@ -6,6 +6,7 @@ const port = 3000;
 
 // importing firebase database 
 const { FieldValue } = require('firebase-admin/firestore');
+const homeController = require("./contollers/homeController.js");
 const { db } = require('./models/firebase.js');
 
 // Static Files
@@ -22,7 +23,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/signin", (req, res) => {
-  res.render("signin");
+  res.render("auth/signin");
 });
 
 app.get("/signinSubmit",(req,res)=>{
@@ -39,7 +40,7 @@ app.get("/signinSubmit",(req,res)=>{
 })
 
 app.get("/signup", (req, res) => {
-  res.render("signup");
+  res.render("auth/signup");
 });
 
 app.get("/signUpSubmit",(req,res)=>{
@@ -59,14 +60,14 @@ app.get("/signUpSubmit",(req,res)=>{
 })
 
 app.get("/forgot", (req, res) => {
-  res.render("forgot");
+  res.render("auth/forgot");
 });
 
 app.get("/forgotVerify",(req,res)=>{
     const email = req.query.Email;
     db.collection("users").where("email","==",email).get().then((docs)=>{
         if(docs.size >0){
-            res.render("verify");
+            res.render("auth/verify");
         }
         else{
             res.send("you don't have a account")
@@ -76,15 +77,16 @@ app.get("/forgotVerify",(req,res)=>{
 })
 
 app.get("/forgot/pwd", (req, res) => {
-  res.render("pwd");
+  res.render("auth/pwd");
 });
 
 app.get("/forgot/verify", (req, res) => {
-  res.render("verify");
+  res.render("auth/verify");
 });
 
-app.get("/home", (req, res) => {
-  res.render("home");
+app.get("/home", async(req,res)=>{
+
+    res.render('/home')
 });
 app.get("/shop", async(req, res) => {
   try{
@@ -108,6 +110,10 @@ app.post("/shop/product", (req, res) => {
   console.log(req.query);
   res.render("product");
 });
+
+app.get("/cart",(req,res)=>{
+   res.render("cart");
+})
 // Listen on Port 3000
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);

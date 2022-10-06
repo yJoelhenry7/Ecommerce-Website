@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+            <!-- Adding tab icon -->
+            <link rel="shortcut icon" href="/img/" type="image/x-icon">
+            <!-- Font awesome cdn link -->
+           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+             <!-- css link -->
+           <link rel="stylesheet" href="/css/headfoot.css">
+           <link rel="stylesheet" href="/css/cart.css">
+</head>
+<body>
+ <!-- header starts here -->
+  <!-- <%- include('includes/header.ejs')%> -->
+  <!-- header ends here -->
+  <!-- <div class="spacex"></div> -->
+
+
+  <!-- Empty cart section start -->
+        <section class="cart">
+    
+   <div class="order-cart">
+   <div class="order-icon">
+        <img src="/img/cart-black.png" alt="">
+        <h1 class="orderhead">Order summary</h1>
+   </div>
+   <div class="order-list">
+        <div class="order-item flex">
+                <img src="/img/adidas.jpg" class="item-img" >
+                <div class="item-text">
+                       <h1>Nike-1</h1> 
+                </div>
+                <span class="flex">1Q</span>
+                <span style="font-size: 1.5rem; font-weight:700">₹2000</span>
+        </div>
+        <div class="order-list">
+                <div class="order-item flex">
+                        <img src="/img/adidas.jpg" class="item-img" >
+                        <div class="item-text">
+                               <h1>Nike-1</h1> 
+                        </div>
+                        <span class="flex">1Q</span>
+                        <span style="font-size: 1.5rem; font-weight:700">₹2000</span>
+                </div>
+                <div class="order-list">
+                        <div class="order-item flex">
+                                <img src="/img/adidas.jpg" class="item-img" >
+                                <div class="item-text">
+                                       <h1>Nike-1</h1> 
+                                </div>
+                                <span class="flex">1Q</span>
+                                <span style="font-size: 1.5rem; font-weight:700">₹2000</span>
+                        </div>             
+   </div>
+<div class="item-billing">
+      <div class="total-cost">
+       <span class="total">Total amount : </span>
+       <span class="cost"> ₹2000</span>
+</div>  
+<a href="http://" class="btn buy">buy all</a>
+</div>
+   </div>
+
+
+
+      <!-- <div class="empty-cart">
+        <h1 class="titlec">cart Empty 😕</h1>
+        <div class="cartemp">
+                <p>you probably haven't added any item to cart</p>
+                <p >go to shop section to add items </p>
+        </div>
+        <img src="/img/empty-cart.png" class="empimg" alt="" >
+        <div class="btn-center">
+         <a href="http://" class="btn ">go back</a>
+        </div>
+      </div> -->
+        </section>
+         <!-- cart section end -->
+
+
+
+  <!-- Footer -->
+  <!-- <%-include('includes/footer.ejs')%> -->
+  <!-- Footer  -->
+  <script src="/js/headfoot.js"></script>
+
+</body>
+</html>
