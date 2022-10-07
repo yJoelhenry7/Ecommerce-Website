@@ -100,10 +100,6 @@ app.get("/addcart",addCartController);
 
 app.get("/cart",cartController)
 
-
-
-
-
 app.get('/contact',(req,res)=>{
   res.render('contact')
 })

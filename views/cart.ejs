@@ -19,7 +19,6 @@
   <!-- header ends here -->
   <!-- <div class="spacex"></div> -->
 
-
   <!-- cart section start -->
         <section class="cart">
     
@@ -35,17 +34,24 @@
                 <div class="item-text">
                        <h1><%=prod.name%></h1> 
                 </div>
-                <span class="flex" style="font-size:1.5rem;">1Q</span>
-                <span style="font-size: 1.5rem; font-weight:700"><%=prod.cost%></span>
+                <span class="flex" style="font-size:1.5rem;"><%=prod.quantity%></span>
+                <span style="font-size: 1.5rem; font-weight:700">&#8377; <%=prod.cost%></span>
+                <form action="" method="get">
+                    
+                    <input type="submit"  class="btn" value="delete item">
+                </form>
         </div>
       </div>
       <%})%>
 <div class="item-billing">
       <div class="total-cost">
        <span class="total">Total amount : </span>
-       <span class="cost"> <%=cost%></span>
+       <span class="cost">&#8377; <%=cost%></span>
 </div>  
 <a href="http://" class="btn buy">buy all</a>
+</div>
+<div>
+     <a href="/shop" class="btn">Go back</a>
 </div>
    </div>
 

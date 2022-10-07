@@ -9,3 +9,12 @@ document.querySelector('#search-btn').onclick = () =>{
 document.querySelector('#menu-btn').onclick = () =>{
     navBar.classList.toggle('actives');
 }
+
+// loader js
+var loader = document.querySelector(".loader")
+
+window.addEventListener("load", vanish);
+
+function vanish() {
+  loader.classList.add("disppear");
+}
