@@ -2,11 +2,15 @@
 const { response } = require("express");
 const express = require("express");
 const app = express();
+const bodyParser = require('body-parser');
 const port = 3000;
 
 // importing firebase database 
 const { FieldValue } = require('firebase-admin/firestore');
 const { db } = require('./models/firebase.js');
+
+//body parser
+app.use(bodyParser.json());
 
 // Static Files
 app.use(express.static('public'));
@@ -22,6 +26,9 @@ const {homeController} =require('./controllers/homeController');
 const { shopController } = require("./controllers/shopController.js");
 const { addCartController } = require("./controllers/addCartController.js");
 const { cartController } = require("./controllers/cartController.js");
+const { signinController } = require("./controllers/signinController.js");
+const { signupController } = require("./controllers/signupController.js");
+
 
 // routes for authorization of user
 app.get("/", (req, res) => {
@@ -32,39 +39,13 @@ app.get("/signin", (req, res) => {
   res.render("auth/signin");
 });
 
-app.post("/signinSubmit",(req,res)=>{
-    const email = req.query.Email;
-    const password = req.query.password;  
-    db.collection("users").get().then((docs)=>{
-        if(docs.size >0){
-            res.render("home")
-        }
-        else{
-            res.send("auth/signinFailed");
-        }
-    }) 
-  
-})
+app.get("/signinSubmit",signinController)
 
 app.get("/signup", (req, res) => {
   res.render("auth/signup");
 });
 
-app.get("/signUpSubmit",(req,res)=>{
-    const name = req.query.user_name;
-    const email = req.query.Email;
-    const password = req.query.password;  
-    const cnfrmpass = req.query.cnfrmpassword; 
-    if(password===cnfrmpass){
-        db.collection("users").add({
-            name :name,
-            email:email,
-            password:password
-        }).then(()=>{
-            res.render("auth/signupsuccess",{name:name})
-        })
-    }
-})
+app.get("/signUpSubmit",signupController)
 
 app.get("/forgot", (req, res) => {
   res.render("auth/forgot");

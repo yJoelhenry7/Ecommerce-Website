@@ -221,6 +221,8 @@ p{
     color: var(--orange);
 }
 
+/* footer css ends */
+
   /* Scroll bar effect */
 ::-webkit-scrollbar {
     width: 10px;
