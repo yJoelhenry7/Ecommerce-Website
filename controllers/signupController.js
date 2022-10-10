@@ -8,7 +8,8 @@ exports.signupController = (req,res)=>{
     const password = req.query.password;  
     const cnfrmpass = req.query.cnfrmpassword; 
     if(password===cnfrmpass){
-        db.collection("users").add({
+        const docRef = db.collection("users").doc(email)
+        const response = docRef.set({
             name :name,
             email:email,
             password:password
@@ -16,4 +17,4 @@ exports.signupController = (req,res)=>{
             res.render("auth/signupsuccess",{name:name})
         })
     }
-}
+    }

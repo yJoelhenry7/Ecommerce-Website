@@ -13,16 +13,18 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #4070f4;
+    background-image: url(../img/loging_bg.png);
+    background-size: cover;
+    background-position: center;
+    /* background: #fff; */
 }
 
 .container{
     position: relative;
     max-width: 430px;
     width: 100%;
-    background: #fff;
     border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); */
 }
 
 .container .form{
@@ -42,7 +44,7 @@ body{
     bottom: 0;
     height: 3px;
     width: 30px;
-    background-color: #4070f4;
+    background-color: #ff0000;
     border-radius: 25px;
 }
 
@@ -78,7 +80,7 @@ p{
     transition: all 0.2s ease;
 }
 .input-field input:is(:focus,:valid){
-    border-bottom-color: #4070f4;
+    border-bottom-color: #ff0000;
 }
 .input-field i{
     position:absolute;
@@ -89,7 +91,7 @@ p{
 }
 
 .input-field input:is(:focus,:valid) ~ i{
-    color: #4070f4;
+    color: #ff0000;
 }
 
 .input-field i.icon{
@@ -124,21 +126,6 @@ p{
     padding: 0; 
 }
 
-.check-button:hover + .check::before{
-    border-color: #4070f4;
-}
-.check-button:checked + .check::before{
-    border-color: green;
-}
-.check-button:checked + .check::after{
-    -moz-animation: check 0.8s ease 0s running ;
-    -webkit-animation: check 0.8s ease 0s running ;
-    animation: check 0.8s ease 0s running ;
-    display: block;
-    width: 7px;
-    height: 20px;
-    border-color:black;
-}
 .form .text{
     color: #333;
     font-size: 14px;

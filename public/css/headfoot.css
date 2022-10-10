@@ -76,6 +76,18 @@ p{
   cursor: pointer;
   text-align: center;
 }
+.header .icons #login-btn{
+    height: 4.5rem;
+    width: 6.0rem;
+    line-height: 4.5rem;
+    border-radius: .5rem;
+    background: #eee;
+    color: var(--black);
+    font-size: 2rem;
+    margin-right: .3rem;
+    cursor: pointer;
+    text-align: center;
+  }
 .header .icons div:hover{
     background: var(--orange) ;
     color: #fff;
@@ -228,12 +240,13 @@ p{
     width: 10px;
   }
   ::-webkit-scrollbar-track {
+    background: transparent;
     border-radius: 5px;
   }
   ::-webkit-scrollbar-thumb {
     border-radius: 5px;
     height: 5px;
-    background: rgb(200, 200, 200); 
+    background: #ed2d34;
   }
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 

@@ -5,12 +5,14 @@ const app = express();
 const bodyParser = require('body-parser');
 const port = 3000;
 
+
 // importing firebase database 
 const { FieldValue } = require('firebase-admin/firestore');
 const { db } = require('./models/firebase.js');
 
 //body parser
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 
 // Static Files
 app.use(express.static('public'));
@@ -31,7 +33,7 @@ const { signupController } = require("./controllers/signupController.js");
 
 
 // routes for authorization of user
-app.get("/", (req, res) => {
+app.get("/",(req, res) => {
   res.render('auth/signin')
 });
 
@@ -54,14 +56,13 @@ app.get("/forgot", (req, res) => {
 app.get("/forgotVerify",(req,res)=>{
     const email = req.query.Email;
     db.collection("users").where("email","==",email).get().then((docs)=>{
-        if(docs.size >0){
-            res.render("auth/verify");
-        }
-        else{
-            res.render("auth/signinFailed")
-        }
+      if(docs.size >0){
+        res.render("auth/verify");
+    }
+    else{
+        res.render("auth/signinFailed")
+    }
     })
-    console.log(req);
 })
 
 app.get("/forgot/pwd", (req, res) => {
@@ -71,6 +72,13 @@ app.get("/forgot/pwd", (req, res) => {
 app.get("/forgot/verify", (req, res) => {
   res.render("auth/verify");
 });
+
+app.get("/deleteItem",(req,res)=>{
+  const id = req.query.id
+    const docRef =  db.collection("cart").doc(id)
+   const response = docRef.delete()
+   res.render('home')
+})
 
 // Routes for Web application
 app.get("/home",homeController);

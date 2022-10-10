@@ -14,12 +14,7 @@
            <link rel="stylesheet" href="/css/cart.css">
 </head>
 <body>
- <!-- header starts here -->
-  <!-- <%- include('includes/header.ejs')%> -->
-  <!-- header ends here -->
-  <!-- <div class="spacex"></div> -->
 
-  <!-- cart section start -->
         <section class="cart">
     
    <div class="order-cart">
@@ -36,8 +31,8 @@
                 </div>
                 <span class="flex" style="font-size:1.5rem;"><%=prod.quantity%></span>
                 <span style="font-size: 1.5rem; font-weight:700">&#8377; <%=prod.cost%></span>
-                <form action="" method="get">
-                    
+                <form action="/deleteItem" method="GET">
+                    <input type="hidden" name="id" value="<%=prod.id%>">
                     <input type="submit"  class="btn" value="delete item">
                 </form>
         </div>
@@ -54,17 +49,9 @@
      <a href="/shop" class="btn">Go back</a>
 </div>
    </div>
-
-
-
         </section> 
          <!-- cart section end -->
 
-
-
-  <!-- Footer -->
-  <!-- <%-include('includes/footer.ejs')%> -->
-  <!-- Footer  -->
   <script src="/js/headfoot.js"></script>
   <script src="/js/cart.js"></script>
 

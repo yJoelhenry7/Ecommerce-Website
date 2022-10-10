@@ -1,6 +1,6 @@
 
 // importing firebase database 
-const { FieldValue } = require('firebase-admin/firestore');
+const { FieldValue, DocumentSnapshot } = require('firebase-admin/firestore');
 const { db } = require('../models/firebase.js');
 
 exports.addCartController = (req,res)=>{
@@ -9,12 +9,20 @@ exports.addCartController = (req,res)=>{
     const cost = req.query.cost;
     const img = req.query.img;
     const quantity = req.query.quantity;
+    const val = parseInt(id)
     try{
-        const addCartRef = db.collection('cart')
-    const responser = addCartRef.add({
-         name:name,cost:cost,img:img,id:id,quantity:quantity
-      },{merge:true});
-     res.render("home");
+        const cartRef = db.collection('cart').doc(id)
+        cartRef.get().then((DocumentSnapshot)=>{
+            if(DocumentSnapshot.exists){
+               res.render("home")
+            }
+            else{
+                const responser = cartRef.set({
+                    name:name,cost:cost,img:img,id:id,quantity:quantity
+                 });
+                res.render("home");
+            }
+        })
      }catch(error){
          res.send(error);
    }
