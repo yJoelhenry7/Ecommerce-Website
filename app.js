@@ -30,7 +30,9 @@ const { addCartController } = require("./controllers/addCartController.js");
 const { cartController } = require("./controllers/cartController.js");
 const { signinController } = require("./controllers/signinController.js");
 const { signupController } = require("./controllers/signupController.js");
-
+const { deleteItemController } = require("./controllers/deleteItemController.js");
+const { reduceItem } = require("./controllers/reduceItemController.js");
+const { updateItem } = require("./controllers/updateItemController.js");
 
 // routes for authorization of user
 app.get("/",(req, res) => {
@@ -73,12 +75,7 @@ app.get("/forgot/verify", (req, res) => {
   res.render("auth/verify");
 });
 
-app.get("/deleteItem",(req,res)=>{
-  const id = req.query.id
-    const docRef =  db.collection("cart").doc(id)
-   const response = docRef.delete()
-   res.render('home')
-})
+
 
 // Routes for Web application
 app.get("/home",homeController);
@@ -89,10 +86,16 @@ app.get("/addcart",addCartController);
 
 app.get("/cart",cartController)
 
+
 app.get('/contact',(req,res)=>{
   res.render('contact')
 })
 
+app.get("/deleteItem",deleteItemController)
+
+app.get('/reduceItem',reduceItem)
+
+app.get('/updateItem',updateItem)
 
 // Listen on Port 3000
 app.listen(port, () => {

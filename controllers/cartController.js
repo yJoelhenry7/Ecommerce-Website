@@ -15,22 +15,20 @@ exports.cartController = async(req,res)=>{
       for(let i=0;i<responseArr.length;i++){
         for(let j=0;j<responseArr.length;j++){
           if(responseArr[i].id===responseArr[j].id){
-            responseArr[i].quantity = parseInt(responseArr[i].quantity)+1
+            responseArr[i].quantity = parseInt(responseArr[i].quantity)
           }
         }
       }
-  let uniqueResponseArr = [...new Map(responseArr.map((item) => [item["id"], item])).values()]
-  
-          uniqueResponseArr.forEach(val=>{
-            cost+=parseInt(val.cost)
+          responseArr.forEach(val=>{
+            cost+=parseInt(val.addcart)
           })
-      if(uniqueResponseArr.length === 0){
+      if(responseArr.length === 0){
         res.render("emptyCart")
       }
       else {
         res.render("cart",{
-         prod : uniqueResponseArr,
-         cost: cost,
+         prod : responseArr,
+         cost: cost
         });
       }
      }catch(error){

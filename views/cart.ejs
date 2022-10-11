@@ -14,7 +14,12 @@
            <link rel="stylesheet" href="/css/cart.css">
 </head>
 <body>
+ <!-- header starts here -->
+  <!-- <%- include('includes/header.ejs')%> -->
+  <!-- header ends here -->
+  <!-- <div class="spacex"></div> -->
 
+  <!-- cart section start -->
         <section class="cart">
     
    <div class="order-cart">
@@ -29,8 +34,22 @@
                 <div class="item-text">
                        <h1><%=prod.name%></h1> 
                 </div>
-                <span class="flex" style="font-size:1.5rem;"><%=prod.quantity%></span>
-                <span style="font-size: 1.5rem; font-weight:700">&#8377; <%=prod.cost%></span>
+                <form action="/reduceItem" method="GET">
+                    <input type="hidden" name="id" value="<%=prod.id%>">
+                    <input type="hidden" name="quantity" value="<%=prod.quantity%>">
+                    <input type="hidden" name="addcart" value="<%=prod.addcart%>">
+                    <input type="hidden" name="cost" value="<%=prod.cost%>">
+                    <input type="submit" class="btn-cart" value="&#8722;">
+                </form>
+                <span class="flex" style="font-size:2rem; font-weight: 600;"><%=prod.quantity%></span>
+                <form action="/updateItem" method="GET">
+                    <input type="hidden" name="id" value="<%=prod.id%>">
+                    <input type="hidden" name="quantity" value="<%=prod.quantity%>">
+                    <input type="hidden" name="addcart" value="<%=prod.addcart%>">
+                    <input type="hidden" name="cost" value="<%=prod.cost%>">
+                    <input type="submit" class="btn-cart" value="&#43;">
+                </form>
+                <span style="font-size: 1.9rem; font-weight:700">&#8377; <%=prod.addcart%></span>
                 <form action="/deleteItem" method="GET">
                     <input type="hidden" name="id" value="<%=prod.id%>">
                     <input type="submit"  class="btn" value="delete item">
@@ -49,9 +68,17 @@
      <a href="/shop" class="btn">Go back</a>
 </div>
    </div>
+
+
+
         </section> 
          <!-- cart section end -->
 
+
+
+  <!-- Footer -->
+  <!-- <%-include('includes/footer.ejs')%> -->
+  <!-- Footer  -->
   <script src="/js/headfoot.js"></script>
   <script src="/js/cart.js"></script>
 

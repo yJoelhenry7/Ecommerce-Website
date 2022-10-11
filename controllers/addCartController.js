@@ -18,7 +18,7 @@ exports.addCartController = (req,res)=>{
             }
             else{
                 const responser = cartRef.set({
-                    name:name,cost:cost,img:img,id:id,quantity:quantity
+                    name:name,cost:cost,img:img,id:id,quantity:quantity,addcart:cost
                  });
                 res.render("home");
             }
